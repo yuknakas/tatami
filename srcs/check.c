@@ -17,8 +17,8 @@ void	check(t_tatami *tatami)
 	}
 	for (int i = 0; i < tatami->max_x; i++)
 	{
-		write(1, tatami->map[i], tatami->max_y);
-		write(1, "\n", 1);
+		printf("%s\n", tatami->map[i]);
+		// write(1, "\n", 1);
 	}
 	printf("\n");	
 }
