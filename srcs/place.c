@@ -56,16 +56,16 @@ static void	place_hori(t_tatami *tatami, char color)
 
 static bool	find_next(t_tatami *tatami)
 {
-	while (tatami->x < tatami->max_x)
+	while (tatami->y < tatami->max_y)
 	{
-		while (tatami->y < tatami->max_y)
+		while (tatami->x < tatami->max_x)
 		{
 			if (!tatami->map[tatami->x][tatami->y])
 				return (false);
-			tatami->y++;
+			tatami->x++;
 		}
-		tatami->y = 0;
-		tatami->x++;
+		tatami->x = 0;
+		tatami->y++;
 	}
 	return (true);
 }

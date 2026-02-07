@@ -6,9 +6,15 @@ void	check(t_tatami *tatami)
 {
 	tatami->total++;
 	if (check_invalid(tatami))
+	{
+		printf("INVALID\n");
 		tatami->invalid++;
+	}
 	else
+	{
+		printf("valid\n");
 		tatami->valid++;
+	}
 	for (int i = 0; i < tatami->max_x; i++)
 	{
 		write(1, tatami->map[i], tatami->max_y);
