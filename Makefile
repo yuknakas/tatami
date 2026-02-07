@@ -8,7 +8,7 @@ RMFLAG	=	rm -rf
 
 all: $(NAME)
 
-$(NAME) = $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(OBJS)
 
 %.o: %.
