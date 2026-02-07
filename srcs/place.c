@@ -18,7 +18,7 @@ static void	place_vert(t_tatami *tatami, char color)
 {
 	int tmp_x = tatami->x;
 	int tmp_y = tatami->y;
-	if (tmp_x + 1 >= tatami->max_x)
+	if (tmp_x + 1 >= tatami->max_x || tatami->map[tmp_x + 1][tmp_y])
 		return ;
 	tatami->map[tmp_x][tmp_y] = color;
 	tatami->map[tmp_x + 1][tmp_y] = color;
@@ -38,7 +38,7 @@ static void	place_hori(t_tatami *tatami, char color)
 {
 	int tmp_x = tatami->x;
 	int tmp_y = tatami->y;
-	if (tmp_y + 1 >= tatami->max_y)
+	if (tmp_y + 1 >= tatami->max_y || tatami->map[tmp_x][tmp_y + 1])
 		return ;
 	tatami->map[tmp_x][tmp_y] = color;
 	tatami->map[tmp_x][tmp_y + 1] = color;
