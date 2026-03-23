@@ -1,24 +1,25 @@
 #include "../include/tatami.h"
 
-static void	place_hori(t_tatami *tatami);
-static void	place_vert(t_tatami *tatami);
+static void	place_hori(t_tatami *tatami, char color);
+static void	place_vert(t_tatami *tatami, char color);
 static bool	find_next(t_tatami *tatami);
 
 void	place(t_tatami *tatami)
 {
-	place_vert(tatami);
-	place_hori(tatami);
+	char	color;
+
+	color = findcolor(tatami);
+	place_vert(tatami, color);
+	place_hori(tatami, color);
 	return ;
 }
 
-static void	place_vert(t_tatami *tatami)
+static void	place_vert(t_tatami *tatami, char color)
 {
-	char	color;
 	int tmp_x = tatami->x;
 	int tmp_y = tatami->y;
 	if (tmp_x + 1 >= tatami->max_x || tatami->map[tmp_x + 1][tmp_y])
 		return ;
-	color = findcolor_vert(tatami);
 	tatami->map[tmp_x][tmp_y] = color;
 	tatami->map[tmp_x + 1][tmp_y] = color;
 
@@ -33,14 +34,12 @@ static void	place_vert(t_tatami *tatami)
 	tatami->map[tmp_x + 1][tmp_y] = 0;
 }
 
-static void	place_hori(t_tatami *tatami)
+static void	place_hori(t_tatami *tatami, char color)
 {
-	char	color;
 	int tmp_x = tatami->x;
 	int tmp_y = tatami->y;
 	if (tmp_y + 1 >= tatami->max_y || tatami->map[tmp_x][tmp_y + 1])
 		return ;
-	color = findcolor_hori(tatami);
 	tatami->map[tmp_x][tmp_y] = color;
 	tatami->map[tmp_x][tmp_y + 1] = color;
 
