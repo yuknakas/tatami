@@ -22,7 +22,8 @@ typedef struct s_tatami
 bool	init(t_tatami *tatami, int argc, char **argv);
 void	clean(t_tatami *tatami, int i);
 void	place(t_tatami *tatami);
-char	findcolor(t_tatami *tatami);
+char	findcolor_vert(t_tatami *tatami);
+char	findcolor_hori(t_tatami *tatami);
 void	check(t_tatami *tatami);
 
 # define COLORS "ABCD"

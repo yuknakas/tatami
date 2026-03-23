@@ -8,8 +8,8 @@ bool	init(t_tatami *tatami, int argc, char **argv)
 	if (argc != 3)
 		return (true);
 
-	tatami->max_x = atoi(argv[2]);
-	tatami->max_y = atoi(argv[1]);
+	tatami->max_x = atoi(argv[1]);
+	tatami->max_y = atoi(argv[2]);
 	if (invalid_args(tatami->max_x, tatami->max_y))
 		return (true);
 	
