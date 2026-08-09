@@ -1,7 +1,7 @@
 NAME	=	tatami
 CC		=	gcc -Wall -Wextra -Werror
 
-SRCS	=	srcs/check.c srcs/color.c srcs/init.c srcs/main.c srcs/place.c
+SRCS	=	srcs/check.c srcs/color.c srcs/init.c srcs/main.c srcs/place.c srcs/valid.c
 OBJS	=	$(SRCS:.c=.o)
 
 RMFLAG	=	rm -rf

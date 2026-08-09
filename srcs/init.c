@@ -5,11 +5,18 @@ static bool invalid_args(int x, int y);
 
 bool	init(t_tatami *tatami, int argc, char **argv)
 {
-	if (argc != 3)
+	if (argc < 3 || 4 < argc)
+	{
+		printf("Err: Usage\n./tatami int_x int_y options\noptions: n/a=normal s=space\n");
 		return (true);
+	}
 
 	tatami->max_x = atoi(argv[2]);
 	tatami->max_y = atoi(argv[1]);
+	if (argc == 4)
+		tatami->option = argv[3];
+	else
+		tatami->option = "\0";
 	if (invalid_args(tatami->max_x, tatami->max_y))
 		return (true);
 	

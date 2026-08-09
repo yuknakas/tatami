@@ -5,6 +5,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include <string.h>
 
 typedef struct s_tatami
 {
@@ -16,6 +17,7 @@ typedef struct s_tatami
 	int		total;
 	int		valid;
 	int		invalid;
+	char	*option;
 } t_tatami;
 
 // init
@@ -24,6 +26,8 @@ void	clean(t_tatami *tatami, int i);
 void	place(t_tatami *tatami);
 char	findcolor(t_tatami *tatami);
 void	check(t_tatami *tatami);
+bool	check_valid(t_tatami *tatami);
+void	print_valid(t_tatami *tatami);
 
 # define COLORS "ABCD"
 

@@ -1,23 +1,15 @@
 #include "../include/tatami.h"
 
-bool		check_valid(t_tatami *tatami);
+void		print_valid(t_tatami *tatami);
 static char	*add_space(const char *str);
 static void	print_space(t_tatami *tatami);
 
-void	check(t_tatami *tatami)
+void		print_valid(t_tatami *tatami)
 {
-	if (strchr(tatami->option, 'v'))
-		return (print_valid(tatami));
-	tatami->total++;
-	if (check_valid(tatami))
+	if (!check_valid(tatami))
 	{
-		printf("VALID\n");
-		tatami->valid++;
-	}
-	else
-	{
-		printf("invalid\n");
-		tatami->valid++;
+		tatami->invalid++;
+		return ;
 	}
 	if (strchr(tatami->option, 's'))
 		print_space(tatami);
@@ -30,22 +22,7 @@ void	check(t_tatami *tatami)
 		}
 		printf("\n");
 	}
-}
-
-bool	check_valid(t_tatami *tatami)
-{
-	for (int x = 0; x < tatami->max_x - 1; x++)
-	{
-		for (int y = 0; y < tatami->max_y - 1; y++)
-		{
-			if (tatami->map[x][y] != tatami->map[x + 1][y] &&
-				tatami->map[x][y] != tatami->map[x][y + 1] &&
-				tatami->map[x + 1][y] != tatami->map[x + 1][y + 1] &&
-				tatami->map[x][y + 1] != tatami->map[x + 1][y + 1])
-				return (false);
-		}
-	}
-	return (true);
+	tatami->valid++;
 }
 
 static char	*add_space(const char *str)
